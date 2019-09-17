@@ -2,19 +2,18 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
-/* 
+  // // GIVEN THIS PROBLEM:
 
-  // GIVEN THIS PROBLEM:
+  // function firstItem(arr, cb) {
+  //   // firstItem passes the first item of the given array to the callback function.
+  // }
 
-  function firstItem(arr, cb) {
-    // firstItem passes the first item of the given array to the callback function.
-  }
+  // // SOLUTION:
 
-  // SOLUTION:
-
-  function firstItem(arr, cb) {
-    return cb(arr[0]);
-  }
+  // function firstItem(arr, cb) {
+  //   return cb(arr[0]);
+  // }
+  // console.log(firstItem(items));
 
   // NOTES ON THE SOLUTION:
 
@@ -25,10 +24,22 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
   // TEST 1 (inlined callback):
 
-  const test1 = firstItem(items, item => `I love my ${item}!`);
-  console.log(test1); // "I love my Pencil!"
+  function firstItem(arr, cb) {
+    return cb(arr[0]);
+  }
 
-  // TEST 2 (declaring callback before hand):
+  firstItem(items, function(first) {
+    console.log(`I love my ${first}`);
+  });
+
+  firstItem(items, function(first){
+    console.log(`I love my ${first}!`);
+  });  
+  
+  // "I love my Pencil!"
+
+  // // TEST 2 (declaring callback before hand):
+
 
   function logExorbitantPrice(article) {
     return `this ${article} is worth a million dollars!`;
@@ -36,18 +47,29 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
   const test2 = firstItem(items, logExorbitantPrice);
   console.log(test2); // "this Pencil is worth a million dollars!"
-*/
-
 
 function getLength(arr, cb) {
-  return console.log(cb(arr.length));
+  return cb(arr.length);
   // getLength passes the length of the array into the callback.
 }
+getLength(items, function(len){
+  console.log(len);
+});
 
 function last(arr, cb) {
-  return cb(arr[arr.length -1])
+  return cb(arr[arr.length -1]);
   // last passes the last item of the array into the callback.
 }
+
+last(items, function(last){
+  console.log(last);
+})
+
+add(items, function(lst) {
+  return cb(x + y);
+})
+
+function add
 
 function sumNums(x, y, cb) {
   return cb(x + y);
