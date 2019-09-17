@@ -65,32 +65,44 @@ last(items, function(last){
   console.log(last);
 })
 
-add(items, function(lst) {
-  return cb(x + y);
-})
-
-function add
+//////////////////
 
 function sumNums(x, y, cb) {
   return cb(x + y);
   // sumNums adds two numbers (x, y) and passes the result to the callback.
 }
 
-function multiplyNums(x, y, cb) {
-  return cb (x * y);
+sumNums(3, 5, function(num) {
+  console.log(num);
+})
+
+//////////////////////////
+
+function multiplyNums(num1, num2, cb) {
+  return cb (num1 * num2);
   // multiplyNums multiplies two numbers and passes the result to the callback.
 }
 
+multiplyNums(3, 5, function(num) {
+  console.log(num);
+})
+
+///////////////////////////
+
 function contains(item, list, cb) {
-  list.array.forEach(element => {
-    if (element === item) {
+  for (i = 0; i < list.length; i++) {
+    if (list[i] === item) {
       return cb(true);
     }
-  });
+  }
   return cb(false);
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 }
+
+contains('yo-yo', items, function(asdfoizxcuvp) {
+  console.log(asdfoizxcuvp);
+} )
 
 /* STRETCH PROBLEM */
 
@@ -110,3 +122,7 @@ function removeDuplicates(array, cb) {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 }
+
+removeDuplicates(items, function(get) {
+  console.log(get);
+})
