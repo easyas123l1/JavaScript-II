@@ -115,7 +115,12 @@ console.log(runnersSmallSizeShirt);
  runners.forEach(e => {
    donate.push(e.donation);
  });
+ //this forEach just gets every donation out of the runner array inside objects and pushs them into donate.
  let a = donate;
  i = 0;
- const sortByDonation = a => a.map(d => d < 0 ? o : o[i++], o = a.filter(d => d >= 0).sort((a, b) => a - b));
+//a becomes donate array full of donations only. i = index.
+
+ const sortByDonation = a => a.map(d => d < 0 ? o : o[i++], o = a.filter(d => d >= 0).sort((a, b) => a - b)); 
+ 
+ //so first we create an anonymous function pass it in a.  We map over a looking at each donation = d if d < 0 we call a ternary if operator where o is for true and increment index otherwise.  we then set o = a which is the array and filter passing in donation and filtering anything >= 0.  Last we sort the array by passing two variables and doing a-b to get lowest to highest sort or you can do b - a to get highest to lowest depending on which way you sort.
  console.log(sortByDonation(a));
