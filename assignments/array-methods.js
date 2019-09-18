@@ -88,22 +88,34 @@ console.log(ticketPriceTotal);
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1
+// Problem 1 list additional details about each contestant.
 let additionalDetails = [];
 runners.forEach(element => {
   additionalDetails.push(`${element.first_name} ${element.last_name} ${element.email} ${element.shirt_size} ${element.company_name} ${element.donation}`)
 })
 console.log(additionalDetails);
 
-// Problem 2
+// Problem 2 change all last names to uppercase.
 let lastNamesAllCap = runners.map(name => {
   return name.last_name.toUpperCase();
 })
 console.log(lastNamesAllCap);
 
 
-// Problem 3
+// Problem 3 filter all small shirts.
 let runnersSmallSizeShirt = runners.filter(size => {
   return size.shirt_size === 'S';
 })
 console.log(runnersSmallSizeShirt);
+
+//addition challenge
+// sort the donations, while at some point using forEach(), map(), and filter().
+
+ let donate = [];
+ runners.forEach(e => {
+   donate.push(e.donation);
+ });
+ let a = donate;
+ i = 0;
+ const sortByDonation = a => a.map(d => d < 0 ? o : o[i++], o = a.filter(d => d >= 0).sort((a, b) => a - b));
+ console.log(sortByDonation(a));
