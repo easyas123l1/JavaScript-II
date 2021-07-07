@@ -2,19 +2,18 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
-/* 
+  // // GIVEN THIS PROBLEM:
 
-  // GIVEN THIS PROBLEM:
+  // function firstItem(arr, cb) {
+  //   // firstItem passes the first item of the given array to the callback function.
+  // }
 
-  function firstItem(arr, cb) {
-    // firstItem passes the first item of the given array to the callback function.
-  }
+  // // SOLUTION:
 
-  // SOLUTION:
-
-  function firstItem(arr, cb) {
-    return cb(arr[0]);
-  }
+  // function firstItem(arr, cb) {
+  //   return cb(arr[0]);
+  // }
+  // console.log(firstItem(items));
 
   // NOTES ON THE SOLUTION:
 
@@ -25,10 +24,22 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
   // TEST 1 (inlined callback):
 
-  const test1 = firstItem(items, item => `I love my ${item}!`);
-  console.log(test1); // "I love my Pencil!"
+  function firstItem(arr, cb) {
+    return cb(arr[0]);
+  }
 
-  // TEST 2 (declaring callback before hand):
+  firstItem(items, function(first) {
+    console.log(`I love my ${first}`);
+  });
+
+  firstItem(items, function(first){
+    console.log(`I love my ${first}!`);
+  });  
+  
+  // "I love my Pencil!"
+
+  // // TEST 2 (declaring callback before hand):
+
 
   function logExorbitantPrice(article) {
     return `this ${article} is worth a million dollars!`;
@@ -36,34 +47,82 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
   const test2 = firstItem(items, logExorbitantPrice);
   console.log(test2); // "this Pencil is worth a million dollars!"
-*/
-
 
 function getLength(arr, cb) {
+  return cb(arr.length);
   // getLength passes the length of the array into the callback.
 }
+getLength(items, function(len){
+  console.log(len);
+});
 
 function last(arr, cb) {
+  return cb(arr[arr.length -1]);
   // last passes the last item of the array into the callback.
 }
 
+last(items, function(last){
+  console.log(last);
+})
+
+//////////////////
+
 function sumNums(x, y, cb) {
+  return cb(x + y);
   // sumNums adds two numbers (x, y) and passes the result to the callback.
 }
 
-function multiplyNums(x, y, cb) {
+sumNums(3, 5, function(num) {
+  console.log(num);
+})
+
+//////////////////////////
+
+function multiplyNums(num1, num2, cb) {
+  return cb (num1 * num2);
   // multiplyNums multiplies two numbers and passes the result to the callback.
 }
 
+multiplyNums(3, 5, function(num) {
+  console.log(num);
+})
+
+///////////////////////////
+
 function contains(item, list, cb) {
+  for (i = 0; i < list.length; i++) {
+    if (list[i] === item) {
+      return cb(true);
+    }
+  }
+  return cb(false);
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 }
 
+contains('yo-yo', items, function(asdfoizxcuvp) {
+  console.log(asdfoizxcuvp);
+} )
+
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {
+  let newArray = array;
+  for (i = 0; i < newArray.length; i++) {
+    for (j = 0; j < newArray.length; j++) {
+      if (i !== j) {
+        if (newArray[i] === newArray[j]) {
+          newArray.splice(j, 1);
+        }
+      }
+    }
+  }
+  cb(newArray);
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 }
+
+removeDuplicates(items, function(get) {
+  console.log(get);
+})
